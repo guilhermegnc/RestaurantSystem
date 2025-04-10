@@ -1,0 +1,243 @@
+body {
+  background: #292c2d;
+  padding-top: 56px;
+}
+
+.barra-superior {
+  background-color: #202425;
+}
+
+.nome-estabelecimento {
+  font-size: 1.5rem; 
+  color: #b2b8b9; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  font-family: "Roboto", sans-serif;
+  pointer-events: none;
+}
+
+/* Layout principal */
+.pagina {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Barra lateral no fluxo da página */
+.barra-lateral-direita {
+  width: 300px;
+  height: fit-content;
+  overflow-y: auto;
+  border-radius: 20px;
+  background-color: #202425;
+  position: sticky;
+  top: 90px;
+}
+
+.barra-lateral-direita h5 {
+  color: #b2b8b9;
+  margin-bottom: 0;
+}
+
+.barra-lateral-direita hr {
+  border-color: #696969;
+  opacity: 0.2;
+}
+
+.lista-etapas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 0;
+}
+
+.etapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.etapa.active {
+  background-color: #292c2d;
+  border-radius: 20px;
+}
+
+.etapa.active .numero {
+  background-color: #202425;
+  margin-top: 10px;
+}
+
+.numero {
+  width: 40px;
+  height: 40px;
+  background-color: #292c2d;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.texto {
+  color: #b2b8b9;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.barra-lateral-direita button {
+  background-color: #292c2d;
+  color: #b2b8b9;
+}
+
+.barra-lateral-direita button:hover {
+  background-color: #3c4142;
+  color: #b2b8b9;
+}
+
+#btn-avancar,
+#btn-voltar {
+  flex: 1;
+}
+
+/* Card dos itens */
+.item-card {
+  background-color: #202425;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.item-nome {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #b2b8b9;
+}
+
+.item-descricao {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.item-preco {
+  font-weight: bold;
+  color: #e74a0c;
+}
+
+#texto-mesa {
+  margin-left: 10px;
+  color: #b2b8b9;
+}
+
+/* Estilo dos botões para seleção de mesa */
+.mesa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 10px;
+  margin-top: 90px;
+}
+
+.mesa-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #202425;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mesa-btn:hover,
+.mesa-btn.active {
+  background-color: #e74a0c;
+}
+
+/* Controles de quantidade no card dos produtos */
+.item-preco-e-quantidade {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.quantidade-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantidade-controls .btn-quantidade {
+  background-color: #292c2d;
+  color: #fff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.quantidade-controls #btn-mais {
+  background-color: #e74a0c;
+}
+
+.quantidade-controls .quantidade {
+  margin: 0 5px;
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #b2b8b9;
+}
+
+#texto-cliente {
+  color: #b2b8b9;
+  margin-bottom: 50px;
+}
+
+#form-cliente {
+  color: #b2b8b9;
+}
+
+#form-cliente .form-check-input {
+  background-color: #292c2d;
+  color: #b2b8b9;
+}
+
+#form-cliente .form-control {
+  background-color: #292c2d;
+  color: #b2b8b9;
+}
+
+#form-cliente .form-control:focus {
+  border-color: #e74a0c; 
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(231, 74, 12, 0.3); 
+}
+
+#form-cliente .form-check-input:focus,
+.form-check-input:checked {
+  border-color: #e74a0c; 
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(231, 74, 12, 0.3); 
+}
+
+#form-cliente .form-control::placeholder {
+  color: #b2b8b9; 
+  opacity: 1;
+}
+
+/* *:hover {
+  outline: 2px dashed rgba(255, 0, 0, 0.5);
+} */

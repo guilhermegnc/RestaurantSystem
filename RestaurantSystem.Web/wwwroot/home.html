@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/home.css" />
+
+    <title>Restaurante</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark fixed-top px-3 barra-superior">
+      <div
+        class="container-fluid d-flex align-items-center justify-content-between"
+      >
+        <div class="d-flex align-items-center">
+          <span class="navbar-brand mb-0 nome-estabelecimento"
+            >Restaurante</span
+          >
+        </div>
+
+        <!-- Ícone de usuário -->
+        <div class="dropdown">
+          <a
+            class="text-white dropdown-toggle d-flex align-items-center"
+            href="#"
+            role="button"
+            id="userDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-person-circle fs-4"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userDropdown"
+          >
+            <li><a class="dropdown-item" href="#">Historico De Pedidos</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="pagina mt-4 px-3">
+      <!-- Conteúdo principal -->
+      <div class="conteudo">
+        <div id="secao-itens">
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="item-card">
+                <h6 class="item-nome">Pizza Calabresa</h6>
+                <p class="item-descricao">
+                  Molho artesanal, calabresa e cebola roxa.
+                </p>
+                <div class="item-preco-e-quantidade">
+                  <span class="item-preco">R$ 32,90</span>
+                  <div class="quantidade-controls">
+                    <button
+                      class="btn btn-sm btn-quantidade"
+                      data-operacao="menos"
+                    >
+                      -
+                    </button>
+                    <span class="quantidade">0</span>
+                    <button
+                      class="btn btn-sm btn-quantidade"
+                      id="btn-mais"
+                      data-operacao="mais"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="item-card">
+                <h6 class="item-nome">Hambúrguer Artesanal</h6>
+                <p class="item-descricao">
+                  Pão brioche, carne 180g, cheddar e bacon.
+                </p>
+                <div class="item-preco-e-quantidade">
+                  <span class="item-preco">R$ 25,00</span>
+                  <div class="quantidade-controls">
+                    <button
+                      class="btn btn-sm btn-quantidade"
+                      data-operacao="menos"
+                    >
+                      -
+                    </button>
+                    <span class="quantidade">0</span>
+                    <button
+                      class="btn btn-sm btn-quantidade"
+                      id="btn-mais"
+                      data-operacao="mais"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="secao-mesa" class="d-none">
+          <h4 id="texto-mesa">Selecione o número da sua mesa</h4>
+          <div class="mesa-grid">
+            <script>
+              const mesaGrid = document.querySelector(".mesa-grid");
+              for (let i = 1; i <= 50; i++) {
+                const button = document.createElement("button");
+                button.classList.add("mesa-btn");
+                button.dataset.num = i;
+                button.textContent = i;
+                mesaGrid.appendChild(button);
+              }
+            </script>
+          </div>
+        </div>
+        <div id="secao-cliente" class="d-none">
+          <h4 id="texto-cliente">Informações do Cliente</h4>
+          <form id="form-cliente">
+            <div class="mb-3">
+              <label for="nomeCliente" class="form-label"
+                >Nome do Cliente</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="nomeCliente"
+                placeholder="Digite seu nome"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="telefoneCliente" class="form-label"
+                >Número de Telefone</label
+              >
+              <input
+                type="tel"
+                class="form-control"
+                id="telefoneCliente"
+                placeholder="(XX) XXXXX-XXXX"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Tipo de Pedido</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoPedido"
+                    id="consumoLocal"
+                    value="local"
+                  />
+                  <label class="form-check-label" for="consumoLocal"
+                    >Consumo no local</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tipoPedido"
+                    id="paraViagem"
+                    value="viagem"
+                  />
+                  <label class="form-check-label" for="paraViagem"
+                    >Para viagem</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="informacoesAdicionais" class="form-label"
+                >Informações Adicionais</label
+              >
+              <textarea
+                class="form-control"
+                id="informacoesAdicionais"
+                rows="3"
+                placeholder="Observações"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Barra lateral direita -->
+      <div class="barra-lateral-direita p-3 shadow">
+        <h5 class="mb-0">Ordem do Pedido</h5>
+        <hr class="my-1" />
+        <ol class="lista-etapas list-unstyled my-5">
+          <li>
+            <div class="etapa active" id="etapa-itens">
+              <div class="numero">1</div>
+              <div class="texto">Adicionar Itens</div>
+            </div>
+          </li>
+          <li>
+            <div class="etapa" id="etapa-mesa">
+              <div class="numero">2</div>
+              <div class="texto">Selecionar Mesa</div>
+            </div>
+          </li>
+          <li>
+            <div class="etapa" id="etapa-cliente">
+              <div class="numero">3</div>
+              <div class="texto">Informações do Cliente</div>
+            </div>
+          </li>
+        </ol>
+        <div class="d-flex gap-2">
+          <button class="btn w-100" id="btn-voltar" style="display: none;">Voltar</button>
+          <button class="btn w-100" id="btn-avancar">Confirmar Etapa</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/telefone.js"></script>
+  </body>
+</html>
