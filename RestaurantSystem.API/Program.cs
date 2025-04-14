@@ -20,6 +20,9 @@ builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
 
+builder.Services.AddScoped<IMesaRepository, MesaRepository>();
+builder.Services.AddScoped<MesaService>();
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
