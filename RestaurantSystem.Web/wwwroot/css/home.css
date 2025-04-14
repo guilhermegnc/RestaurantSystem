@@ -22,6 +22,7 @@ body {
   flex-direction: row;
   gap: 2rem;
   align-items: flex-start;
+  height: 90vh
 }
 
 /* Conteúdo principal */
@@ -238,6 +239,6 @@ body {
   opacity: 1;
 }
 
-/* *:hover {
+*:hover {
   outline: 2px dashed rgba(255, 0, 0, 0.5);
-} */
+}
