@@ -1,0 +1,80 @@
+# Arquivo .gitignore para projeto C# / .NET
+
+# Arquivos e pastas gerados pelo processo de Build e Compilação
+## Ignore Visual Studio temporary files, build results, and debugging info
+[Bb]in/
+[Oo]bj/
+[Bb]uild/
+[Rr]elease/
+[Dd]ebug/
+[Pp]ublish/
+TestResults/
+
+# Arquivos específicos do Visual Studio e IDEs
+*.user
+*.suo
+*.userprefs
+*.vspscc
+*.vssscc
+.vs/ # Pasta de cache/configurações do Visual Studio 15+
+*.sln.docstates # Arquivo de estado da solução
+
+# Arquivos específicos do Rider (JetBrains)
+.idea/
+*.idea.*
+*.iml
+*_i.c
+*_p.c
+*.resharper
+_ReSharper*/
+
+# Arquivos específicos do VS Code
+.vscode/
+
+# Arquivos de pacotes NuGet
+# Pacotes são gerenciados pelo .csproj e restaurados no build
+packages/
+*.nupkg
+# NuGet v3+ packages cache location (não commit esta pasta)
+project.lock.json
+project.assets.json
+
+# Arquivos de configuração local (podem conter segredos)
+# É uma boa prática NÃO versionar appsettings.Development.json se ele contiver
+# connection strings ou chaves de API sensíveis. Use User Secrets ou variáveis de ambiente para isso.
+# Descomente a linha abaixo se você quiser ignorá-lo explicitamente:
+# appsettings.Development.json
+
+# Arquivos de segredos (NUNCA devem ser commitados)
+secrets.json
+appsettings.*.Secret*.json
+
+# Arquivos de log
+*.log
+*.trace
+
+# Arquivos temporários e de backup
+*.bak
+*.tmp
+*~
+
+# Arquivos gerados pelo Sistema Operacional
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Arquivo .http (RestaurantSystem.http)
+# Geralmente, arquivos .http são úteis para compartilhar/testar endpoints da API
+# e podem ser versionados. Ignore-o apenas se contiver informações sensíveis
+# ou URLs/configurações específicas do seu ambiente local.
+# RestaurantSystem.http
