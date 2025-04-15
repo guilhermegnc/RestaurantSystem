@@ -24,6 +24,7 @@ namespace RestaurantSystem.API.Services
                 DataPedido = DateTime.Now,
                 Status = "em preparo",
                 UsuarioId = dto.UsuarioId,
+                InformacoesAdicionais = dto.InformacoesAdicionais,
                 PedidoItens = dto.Itens.Select(i => new PedidoItem
                 {
                     ProdutoId = i.ProdutoId,

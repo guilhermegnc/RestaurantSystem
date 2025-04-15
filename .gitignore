@@ -78,3 +78,4 @@ $RECYCLE.BIN/
 # e podem ser versionados. Ignore-o apenas se contiver informações sensíveis
 # ou URLs/configurações específicas do seu ambiente local.
 # RestaurantSystem.http
+.fake

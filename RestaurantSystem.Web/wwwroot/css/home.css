@@ -120,6 +120,13 @@ body {
   height: 100%;
 }
 
+.item-card img {
+  width: 100%;         /* faz com que ela ocupe toda a largura do card */
+  height: 180px;       /* altura fixa para todas */
+  object-fit: cover;   /* recorta a imagem sem distorcer */
+  border-radius: 8px;  /* opcional: bordas arredondadas */
+}
+
 .item-nome {
   font-weight: bold;
   margin-bottom: 0.25rem;
@@ -239,6 +246,4 @@ body {
   opacity: 1;
 }
 
-*:hover {
-  outline: 2px dashed rgba(255, 0, 0, 0.5);
-}
+/* s */

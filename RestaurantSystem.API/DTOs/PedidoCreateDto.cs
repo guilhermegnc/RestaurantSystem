@@ -9,6 +9,7 @@ namespace RestaurantSystem.API.DTOs
         public string TipoPedido { get; set; } = string.Empty;// 'local' ou 'viagem'
         public int? MesaNumero { get; set; }
         public int? UsuarioId { get; set; }
+        public string? InformacoesAdicionais { get; set; }
         public List<PedidoItemDto> Itens { get; set; } = new List<PedidoItemDto>();
     }
 }

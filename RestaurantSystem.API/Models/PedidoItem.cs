@@ -13,7 +13,7 @@ namespace RestaurantSystem.API.Models
         public int Quantidade { get; set; }
 
         // Navegação
-        public Pedido Pedido { get; set; } = new Pedido();
-        public Produto Produto { get; set; } = new Produto();
+        public Pedido Pedido { get; set; }
+        public Produto Produto { get; set; } 
     }
 }

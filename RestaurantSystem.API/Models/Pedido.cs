@@ -20,9 +20,11 @@ namespace RestaurantSystem.API.Models
         public int? UsuarioId { get; set; } 
 
         public Usuario? Usuario { get; set; }
+        [Column("informacoes_adicionais")]
+        public string? InformacoesAdicionais { get; set; }
 
         // Navegação
-        public Mesa Mesa { get; set; } = new Mesa(); // Inicializa para evitar NullReferenceException
-        public ICollection<PedidoItem> PedidoItens { get; set; } = new List<PedidoItem>();
+        public Mesa Mesa { get; set; }
+        public ICollection<PedidoItem> PedidoItens { get; set; }
     }
 }

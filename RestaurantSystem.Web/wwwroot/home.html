@@ -59,75 +59,13 @@
       <div class="conteudo">
         <div id="secao-itens">
           <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="item-card">
-                <h6 class="item-nome">Pizza Calabresa</h6>
-                <p class="item-descricao">
-                  Molho artesanal, calabresa e cebola roxa.
-                </p>
-                <div class="item-preco-e-quantidade">
-                  <span class="item-preco">R$ 32,90</span>
-                  <div class="quantidade-controls">
-                    <button
-                      class="btn btn-sm btn-quantidade"
-                      data-operacao="menos"
-                    >
-                      -
-                    </button>
-                    <span class="quantidade">0</span>
-                    <button
-                      class="btn btn-sm btn-quantidade"
-                      id="btn-mais"
-                      data-operacao="mais"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="item-card">
-                <h6 class="item-nome">Hambúrguer Artesanal</h6>
-                <p class="item-descricao">
-                  Pão brioche, carne 180g, cheddar e bacon.
-                </p>
-                <div class="item-preco-e-quantidade">
-                  <span class="item-preco">R$ 25,00</span>
-                  <div class="quantidade-controls">
-                    <button
-                      class="btn btn-sm btn-quantidade"
-                      data-operacao="menos"
-                    >
-                      -
-                    </button>
-                    <span class="quantidade">0</span>
-                    <button
-                      class="btn btn-sm btn-quantidade"
-                      id="btn-mais"
-                      data-operacao="mais"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- Preenchido dinamicamente -->
           </div>
         </div>
         <div id="secao-mesa" class="d-none">
           <h4 id="texto-mesa">Selecione o número da sua mesa</h4>
           <div class="mesa-grid">
-            <script>
-              const mesaGrid = document.querySelector(".mesa-grid");
-              for (let i = 1; i <= 50; i++) {
-                const button = document.createElement("button");
-                button.classList.add("mesa-btn");
-                button.dataset.num = i;
-                button.textContent = i;
-                mesaGrid.appendChild(button);
-              }
-            </script>
+            <!-- Preenchido dinamicamente -->
           </div>
         </div>
         <div id="secao-cliente" class="d-none">
@@ -224,7 +162,9 @@
           </li>
         </ol>
         <div class="d-flex gap-2">
-          <button class="btn w-100" id="btn-voltar" style="display: none;">Voltar</button>
+          <button class="btn w-100" id="btn-voltar" style="display: none">
+            Voltar
+          </button>
           <button class="btn w-100" id="btn-avancar">Confirmar Etapa</button>
         </div>
       </div>
@@ -232,7 +172,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/home.js"></script>
+    <script src="js/carregar-produtos.js"></script>
+    <script src="js/quantidade-produtos.js"></script>
+    <script src="js/carregar-mesas.js"></script>
+    <script src="js/fluxo-pedido.js"></script>
+    <script src="js/envio-pedido.js"></script>
     <script src="js/telefone.js"></script>
   </body>
 </html>
