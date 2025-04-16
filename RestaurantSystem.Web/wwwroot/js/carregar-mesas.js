@@ -7,7 +7,6 @@ $(document).ready(function () {
       mesaGrid.empty(); // Garante que começa vazio
 
       mesas.$values.forEach(mesa => {
-        console.log('oi');
         const button = $("<button>")
           .addClass("mesa-btn")
           .attr("data-num", mesa.numero)

@@ -59,22 +59,31 @@ $(document).ready(function () {
             }
         } else {
             // Chama a função que faz o POST com os dados do pedido
-            const success = enviarPedidoFinalizado();
+            async function finalizarPedido() {
+                try {
+                    const result = await enviarPedidoFinalizado(); // Espera o resultado da Promise
+                    if (result.success) {
+                        alert("Pedido finalizado!");
+                        etapaAtual = 0;
+                        $btnAvancar.text("Confirmar Etapa");
+                        $btnVoltar.css("display", "none");
+                        $("#" + etapas[etapaAtual]).removeClass("d-none");
+                        $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
+                    } else {
+                        alert("Erro ao finalizar o pedido. Tente novamente.");
+                        etapaAtual--;
+                        $("#" + etapas[etapaAtual]).removeClass("d-none");
+                        $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
+                    }
+                } catch (error) {
+                    alert("Erro ao finalizar o pedido. Tente novamente.");
+                    etapaAtual--;
+                    $("#" + etapas[etapaAtual]).removeClass("d-none");
+                    $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
+                }
+            }
 
-            if (success) {
-                alert("Pedido finalizado!");
-                etapaAtual = 0;
-                $btnAvancar.text("Confirmar Etapa");
-                $btnVoltar.css("display", "none");
-                $("#" + etapas[etapaAtual]).removeClass("d-none");
-                $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
-            }
-            else {
-                alert("Erro ao finalizar o pedido. Tente novamente.");
-                etapaAtual--;
-                $("#" + etapas[etapaAtual]).removeClass("d-none");
-                $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
-            }
+            finalizarPedido();
         }
     });
 

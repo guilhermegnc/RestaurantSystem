@@ -44,7 +44,7 @@ namespace RestaurantSystem.API.Services
             {
                 NomeUsuario = dto.NomeUsuario,
                 Senha = senhaHash,
-                TipoUsuario = "cliente"
+                TipoUsuario = dto.TipoUsuario ?? "cliente"
             };
 
             var usuarioCriado = await _usuarioRepository.CriarAsync(novoUsuario);

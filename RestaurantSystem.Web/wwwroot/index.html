@@ -30,8 +30,77 @@
           >
         </div>
 
-        <!-- Ícone de usuário -->
+        <!-- Div principal do dropdown -->
         <div class="dropdown">
+          <!-- Botão com toggle do Bootstrap -->
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            id="btn-entrar"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Entrar
+          </button>
+
+          <!-- Dropdown menu de login/cadastro -->
+          <div
+            id="dropdown-form"
+            class="dropdown-menu dropdown-menu-end p-4"
+            style="min-width: 250px"
+          >
+            <!-- Form de Login -->
+            <div id="login-form">
+              <h5 class="mb-3">Login</h5>
+              <input
+                type="text"
+                id="login-usuario"
+                class="form-control mb-2"
+                placeholder="Usuário"
+              />
+              <input
+                type="password"
+                id="login-senha"
+                class="form-control mb-2"
+                placeholder="Senha"
+              />
+              <button id="btn-login" class="btn btn-success w-100">
+                Entrar
+              </button>
+              <p class="mt-2 text-center mb-0">
+                <a href="#" id="link-para-cadastro"
+                  >Não tem conta? Cadastre-se</a
+                >
+              </p>
+            </div>
+
+            <!-- Form de Cadastro -->
+            <div id="cadastro-form" class="d-none">
+              <h5 class="mb-3">Cadastro</h5>
+              <input
+                type="text"
+                id="cadastro-usuario"
+                class="form-control mb-2"
+                placeholder="Usuário"
+              />
+              <input
+                type="password"
+                id="cadastro-senha"
+                class="form-control mb-2"
+                placeholder="Senha"
+              />
+              <button id="btn-cadastrar" class="btn btn-primary w-100">
+                Cadastrar
+              </button>
+              <p class="mt-2 text-center mb-0">
+                <a href="#" id="link-para-login">Já tem conta? Entrar</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ícone de usuário (fica fora da dropdown principal) -->
+        <div id="usuario-icone" class="d-none">
           <a
             class="text-white dropdown-toggle d-flex align-items-center"
             href="#"
@@ -46,17 +115,29 @@
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="userDropdown"
           >
-            <li><a class="dropdown-item" href="#">Historico De Pedidos</a></li>
+            <li><a class="dropdown-item" href="#">Histórico de Pedidos</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
+            <li>
+              <a class="dropdown-item text-danger" href="#" id="btn-sair"
+                >Sair</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="pagina mt-4 px-3">
+      <!-- Histórico de Pedidos -->
+      <div id="historico-pedidos" class="d-none">
+        <h2>Histórico de Pedidos</h2>
+        <div id="lista-pedidos">
+          <!-- Preenchido dinamicamente -->
+        </div>
+      </div>
+
       <!-- Conteúdo principal -->
-      <div class="conteudo">
+      <div class="conteudo" id="conteudo">
         <div id="secao-itens">
           <div class="row">
             <!-- Preenchido dinamicamente -->
@@ -138,7 +219,7 @@
       </div>
 
       <!-- Barra lateral direita -->
-      <div class="barra-lateral-direita p-3 shadow">
+      <div class="barra-lateral-direita p-3 shadow" id="barra-lateral-direita">
         <h5 class="mb-0">Ordem do Pedido</h5>
         <hr class="my-1" />
         <ol class="lista-etapas list-unstyled my-5">
@@ -173,6 +254,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/carregar-produtos.js"></script>
+    <script src="js/login-cadastro.js"></script>
+    <script src="js/historico.js"></script>
     <script src="js/quantidade-produtos.js"></script>
     <script src="js/carregar-mesas.js"></script>
     <script src="js/fluxo-pedido.js"></script>
