@@ -115,8 +115,8 @@
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="userDropdown"
           >
-            <li><a class="dropdown-item" href="#">Histórico de Pedidos</a></li>
-            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" id="historico-dropdown" href="#">Histórico de Pedidos</a></li>
+            <li><hr class="dropdown-divider" id="divider-dropdown"/></li>
             <li>
               <a class="dropdown-item text-danger" href="#" id="btn-sair"
                 >Sair</a
@@ -131,13 +131,39 @@
       <!-- Histórico de Pedidos -->
       <div id="historico-pedidos" class="d-none">
         <h2>Histórico de Pedidos</h2>
-        <div id="lista-pedidos">
+        <div id="lista-pedidos" class="row">
+          <!-- Preenchido dinamicamente -->
+        </div>
+      </div>
+
+      <div id="pedidos-copa" class="d-none">
+        <h2>Lista de Pedidos</h2>
+        <div id="lista-copa" class="row">
+          <!-- Preenchido dinamicamente -->
+        </div>
+      </div>
+
+      <div id="pedidos-cozinha" class="d-none">
+        <h2>Lista de Pedidos</h2>
+        <div id="lista-cozinha" class="row">
           <!-- Preenchido dinamicamente -->
         </div>
       </div>
 
       <!-- Conteúdo principal -->
       <div class="conteudo" id="conteudo">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <select id="filtro-tipo" class="form-select">
+              <option value="">Todos os tipos</option>
+              <option value="comida">Comida</option>
+              <option value="bebida">Bebida</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <input type="text" id="barra-pesquisa" class="form-control" placeholder="Buscar produto por nome ou descrição...">
+          </div>
+        </div>
         <div id="secao-itens">
           <div class="row">
             <!-- Preenchido dinamicamente -->
@@ -256,6 +282,7 @@
     <script src="js/carregar-produtos.js"></script>
     <script src="js/login-cadastro.js"></script>
     <script src="js/historico.js"></script>
+    <script src="js/conteudo-usuario.js"></script>
     <script src="js/quantidade-produtos.js"></script>
     <script src="js/carregar-mesas.js"></script>
     <script src="js/fluxo-pedido.js"></script>

@@ -4,7 +4,6 @@ $(document).ready(function () {
   const $loginForm = $("#login-form");
   const $cadastroForm = $("#cadastro-form");
   const $usuarioIcone = $("#usuario-icone");
-  const $userMenu = $("#user-dropdown");
   const $btnSair = $("#btn-sair");
 
   // Alternar o dropdown com a classe d-none
@@ -58,6 +57,7 @@ $(document).ready(function () {
 
         // Salvar o ID do usuário no localStorage para persistir a sessão
         localStorage.setItem("usuarioId", response.id);
+        localStorage.setItem("tipoUsuario", "cliente");
 
         // Substituir o botão Entrar pelo ícone de usuário
         $btnEntrar.addClass("d-none");
@@ -103,6 +103,7 @@ $(document).ready(function () {
 
           // Salvar o ID do usuário no localStorage para persistir a sessão
           localStorage.setItem("usuarioId", response.id);
+          localStorage.setItem("tipoUsuario", response.tipoUsuario);
 
           // Substituir o botão Entrar pelo ícone de usuário
           $btnEntrar.addClass("d-none");
@@ -113,6 +114,10 @@ $(document).ready(function () {
           $("#login-usuario").val('');
           $("#login-senha").val('');
           document.body.click();
+          if (response.tipoUsuario != "cliente") {
+            mostrarConteudoFuncionario(response.tipoUsuario);
+            console.log("oi");
+          }
         } else {
           alert("Login falhou: usuário ou senha incorretos.");
         }
@@ -166,10 +171,20 @@ $(document).ready(function () {
 
     // Remover o ID do usuário do localStorage
     localStorage.removeItem("usuarioId");
+    localStorage.removeItem("tipoUsuario");
 
     // Substituir o ícone de usuário pelo botão Entrar novamente
     $usuarioIcone.addClass("d-none");
     $btnEntrar.removeClass("d-none");
+
+      // Resetar a interface para a tela de cliente
+    $("#pedidos-copa").addClass("d-none");
+    $("#pedidos-cozinha").addClass("d-none");
+    $("#historico-pedidos").addClass("d-none");
+
+    $("#barra-lateral-direita").removeClass("d-none");
+    $("#conteudo").removeClass("d-none");
+    $("#divider-dropdown").show();
 
     alert("Você foi deslogado.");
   });
@@ -179,5 +194,9 @@ $(document).ready(function () {
     // Se o usuário estiver logado, mostra o ícone de usuário
     $btnEntrar.addClass("d-none");
     $usuarioIcone.removeClass("d-none");
+    const tipoUsuario = localStorage.getItem("tipoUsuario");
+    if (tipoUsuario != "cliente") {
+      mostrarConteudoFuncionario(tipoUsuario);
+    }
   }
 });

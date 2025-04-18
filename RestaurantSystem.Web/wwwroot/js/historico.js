@@ -6,11 +6,6 @@ function carregarHistoricoPedidos(usuarioId) {
     const $lista = $("#lista-pedidos");
     $lista.empty();
 
-    if (!usuarioId) {
-        $lista.append("<p>Usuário não autenticado.</p>");
-        return;
-    }
-
     const url = `http://localhost:5201/api/pedidos/historico?usuarioId=${usuarioId}`;
 
     $.ajax({
@@ -18,7 +13,7 @@ function carregarHistoricoPedidos(usuarioId) {
         type: 'GET',
         success: function (pedidos) {
             if (pedidos.length === 0) {
-                $lista.append("<p>Você ainda não fez nenhum pedido.</p>");
+              $lista.append("<div class='col-12'><p>Você ainda não fez nenhum pedido.</p></div>");
             } else {
                 pedidos.$values.forEach(pedido => {
                     let itensPedido = '';
@@ -34,13 +29,15 @@ function carregarHistoricoPedidos(usuarioId) {
 
                     // Adicionar o pedido no HTML
                     $lista.append(`
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div><strong>Itens:</strong>${itensPedido}</div>
-                  <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleDateString()}</p>
-                  <p><strong>Status:</strong> ${pedido.status}</p>
-                </div>
-              </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <div><strong>Itens:</strong>${itensPedido}</div>
+                                    <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleDateString()}</p>
+                                    <p><strong>Status:</strong> ${pedido.status}</p>
+                                </div>
+                            </div>
+                        </div>
             `);
                 });
             }
