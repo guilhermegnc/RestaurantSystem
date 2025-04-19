@@ -116,7 +116,6 @@ $(document).ready(function () {
           document.body.click();
           if (response.tipoUsuario != "cliente") {
             mostrarConteudoFuncionario(response.tipoUsuario);
-            console.log("oi");
           }
         } else {
           alert("Login falhou: usuário ou senha incorretos.");
@@ -184,6 +183,7 @@ $(document).ready(function () {
 
     $("#barra-lateral-direita").removeClass("d-none");
     $("#conteudo").removeClass("d-none");
+    $("#historico-dropdown").removeClass("d-none");
     $("#divider-dropdown").show();
 
     alert("Você foi deslogado.");
@@ -194,6 +194,7 @@ $(document).ready(function () {
     // Se o usuário estiver logado, mostra o ícone de usuário
     $btnEntrar.addClass("d-none");
     $usuarioIcone.removeClass("d-none");
+    $("#historico-dropdown").removeClass("d-none");
     const tipoUsuario = localStorage.getItem("tipoUsuario");
     if (tipoUsuario != "cliente") {
       mostrarConteudoFuncionario(tipoUsuario);

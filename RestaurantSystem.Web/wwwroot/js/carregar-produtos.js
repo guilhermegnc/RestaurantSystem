@@ -33,20 +33,20 @@ $(document).ready(function () {
     }
 
     function aplicarFiltros() {
-        const tipoSelecionado = $("#filtro-tipo").val();
+        const tipoSelecionado = $(".filtro-btn.active").data("tipo") || "";
         const termoBusca = $("#barra-pesquisa").val().toLowerCase();
-
+    
         const produtosFiltrados = todosProdutos.filter(prod => {
             const nome = prod.nome.toLowerCase();
             const descricao = prod.descricao.toLowerCase();
             const tipo = prod.categoria.toLowerCase();
-
+    
             const passaFiltroTipo = tipoSelecionado === "" || tipo === tipoSelecionado;
             const passaBusca = nome.includes(termoBusca) || descricao.includes(termoBusca);
-
+    
             return passaFiltroTipo && passaBusca;
         });
-
+    
         renderizarProdutos(produtosFiltrados);
     }
 
@@ -66,6 +66,22 @@ $(document).ready(function () {
 
     // Eventos de filtro e busca
     $("#filtro-tipo, #barra-pesquisa").on("input", aplicarFiltros);
+
+    // Evento para clique nos botões de filtro de tipo
+    $(document).on("click", ".filtro-btn", function () {
+        const $btn = $(this);
+    
+        if ($btn.hasClass("active")) {
+            // Desmarca se já estava ativo (mostrar todos os produtos)
+            $btn.removeClass("active");
+        } else {
+            // Marca apenas o botão clicado
+            $(".filtro-btn").removeClass("active");
+            $btn.addClass("active");
+        }
+    
+        aplicarFiltros();
+    });
 
     // Clique nas mesas
     $(document).on("click", ".mesa-btn", function () {

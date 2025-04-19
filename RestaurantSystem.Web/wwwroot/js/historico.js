@@ -32,7 +32,8 @@ function carregarHistoricoPedidos(usuarioId) {
                         <div class="col-md-6 col-lg-4 mb-4">
                             <div class="card h-100">
                                 <div class="card-body">
-                                    <div><strong>Itens:</strong>${itensPedido}</div>
+                                    <strong>Itens:</strong>
+                                    <div class="itens-historico">${itensPedido}</div>
                                     <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleDateString()}</p>
                                     <p><strong>Status:</strong> ${pedido.status}</p>
                                 </div>

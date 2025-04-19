@@ -1,12 +1,14 @@
 $(document).ready(function () {
     const $btnAvancar = $("#btn-avancar");
     const $btnVoltar = $("#btn-voltar");
+    const $filtros = $("#barra-filtros");
     const etapas = ["secao-itens", "secao-mesa", "secao-cliente"];
     let etapaAtual = 0;
 
     $btnAvancar.on("click", function () {
         if (etapaAtual === 0) {
             const algumSelecionado = $(".quantidade").toArray().some(q => parseInt($(q).text()) > 0);
+            $filtros.addClass("d-none");
 
             if (!algumSelecionado) {
                 alert("Adicione pelo menos 1 item ao pedido.");
@@ -69,6 +71,7 @@ $(document).ready(function () {
                         $btnVoltar.css("display", "none");
                         $("#" + etapas[etapaAtual]).removeClass("d-none");
                         $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
+                        $filtros.removeClass("d-none");
                     } else {
                         alert("Erro ao finalizar o pedido. Tente novamente.");
                         etapaAtual--;
@@ -100,6 +103,10 @@ $(document).ready(function () {
             $btnAvancar.text(etapaAtual === etapas.length - 1 ? "Finalizar Pedido" : "Confirmar Etapa");
 
             $btnVoltar.css("display", etapaAtual > 0 ? "inline-block" : "none");
+
+            if (etapaAtual === 0) {
+                $filtros.removeClass("d-none");
+            }
         }
     });
 });

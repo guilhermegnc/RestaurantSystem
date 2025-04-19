@@ -43,7 +43,8 @@ function mostrarConteudoFuncionario(tipoUsuario) {
                         <div class="col-md-6 col-lg-4 mb-4">
                             <div class="card h-100" data-id="${pedido.id}">
                                 <div class="card-body">
-                                <div><strong>Itens do Pedido:</strong>${itensPedido}</div>
+                                <strong>Itens do Pedido:</strong>
+                                <div class="itens-pedido">${itensPedido}</div>
                                 <p><strong>Número da mesa:</strong> ${pedido.mesaNumero}</p>
                                 <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleDateString()}</p>
                                 <p><strong>Status:</strong> <span class="status-text">${pedido.status}</span></p>

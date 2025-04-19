@@ -14,6 +14,11 @@
       rel="stylesheet"
     />
 
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/home.css" />
 
     <title>Restaurante</title>
@@ -22,19 +27,15 @@
     <!-- Navbar -->
     <nav class="navbar navbar-dark fixed-top px-3 barra-superior">
       <div
-        class="container-fluid d-flex align-items-center justify-content-between"
+        class="container-fluid d-flex" id="nav-conteudo"
       >
-        <div class="d-flex align-items-center">
-          <span class="navbar-brand mb-0 nome-estabelecimento"
-            >Restaurante</span
-          >
-        </div>
+        <img src="imagens/logo.jpeg" alt="Restaurante" class="logo" />
 
         <!-- Div principal do dropdown -->
         <div class="dropdown">
           <!-- Botão com toggle do Bootstrap -->
           <button
-            class="btn btn-primary dropdown-toggle"
+            class="btn dropdown-toggle"
             type="button"
             id="btn-entrar"
             data-bs-toggle="dropdown"
@@ -118,7 +119,7 @@
             <li><a class="dropdown-item" id="historico-dropdown" href="#">Histórico de Pedidos</a></li>
             <li><hr class="dropdown-divider" id="divider-dropdown"/></li>
             <li>
-              <a class="dropdown-item text-danger" href="#" id="btn-sair"
+              <a class="dropdown-item" href="#" id="btn-sair"
                 >Sair</a
               >
             </li>
@@ -152,14 +153,21 @@
 
       <!-- Conteúdo principal -->
       <div class="conteudo" id="conteudo">
-        <div class="row mb-3">
-          <div class="col-md-4">
-            <select id="filtro-tipo" class="form-select">
-              <option value="">Todos os tipos</option>
-              <option value="comida">Comida</option>
-              <option value="bebida">Bebida</option>
-            </select>
+        <div class="row mb-3" id="barra-filtros">
+          <div class="col-md-4 d-flex gap-4" id="filtros-tipo">
+            <button class="btn btn-outline-light filtro-btn" data-tipo="comida">
+              <i class="fas fa-utensils me-2"></i> Comidas
+            </button>
+            <button class="btn btn-outline-light filtro-btn" data-tipo="bebida">
+              <i class="fas fa-glass-water me-2"></i> Bebidas
+            </button>
           </div>
+
+           <!-- Separador vertical -->
+          <div class="col-md-1 d-none d-md-flex justify-content-center" id="separador-filtros">
+            <div class="vr h-100" style="border-left: 1px solid #ccc;"></div>
+          </div>
+          
           <div class="col-md-8">
             <input type="text" id="barra-pesquisa" class="form-control" placeholder="Buscar produto por nome ou descrição...">
           </div>
@@ -178,7 +186,7 @@
         <div id="secao-cliente" class="d-none">
           <h4 id="texto-cliente">Informações do Cliente</h4>
           <form id="form-cliente">
-            <div class="mb-3">
+            <div class="mb-7">
               <label for="nomeCliente" class="form-label"
                 >Nome do Cliente</label
               >
@@ -251,20 +259,20 @@
         <ol class="lista-etapas list-unstyled my-5">
           <li>
             <div class="etapa active" id="etapa-itens">
-              <div class="numero">1</div>
-              <div class="texto">Adicionar Itens</div>
+              <div class="numero-barra-lateral">1</div>
+              <div class="texto-barra-lateral">Adicionar Itens</div>
             </div>
           </li>
           <li>
             <div class="etapa" id="etapa-mesa">
-              <div class="numero">2</div>
-              <div class="texto">Selecionar Mesa</div>
+              <div class="numero-barra-lateral">2</div>
+              <div class="texto-barra-lateral">Selecionar Mesa</div>
             </div>
           </li>
           <li>
             <div class="etapa" id="etapa-cliente">
-              <div class="numero">3</div>
-              <div class="texto">Informações do Cliente</div>
+              <div class="numero-barra-lateral">3</div>
+              <div class="texto-barra-lateral">Informações do Cliente</div>
             </div>
           </li>
         </ol>
