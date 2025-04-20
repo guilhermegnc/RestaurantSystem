@@ -1,4 +1,3 @@
-```markdown
 # RestaurantSystem
 
 Sistema de gerenciamento de pedidos para restaurantes, composto por uma Web API em ASP.NET Core (.NET 9) e uma interface web em HTML, CSS e JavaScript.
