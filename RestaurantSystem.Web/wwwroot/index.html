@@ -19,6 +19,8 @@
       rel="stylesheet"
     />
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="css/home.css" />
 
     <title>Restaurante</title>
@@ -179,12 +181,18 @@
         </div>
         <div id="secao-mesa" class="d-none">
           <h4 id="texto-mesa">Selecione o número da sua mesa</h4>
+          <div class="container-hr">
+            <hr class="linha-separadora"/>
+          </div>
           <div class="mesa-grid">
             <!-- Preenchido dinamicamente -->
           </div>
         </div>
         <div id="secao-cliente" class="d-none">
           <h4 id="texto-cliente">Informações do Cliente</h4>
+          <div class="container-hr">
+              <hr class="linha-separadora"/>
+          </div>
           <form id="form-cliente">
             <div class="mb-7">
               <label for="nomeCliente" class="form-label"
@@ -287,6 +295,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/swal-config.js"></script>
     <script src="js/carregar-produtos.js"></script>
     <script src="js/login-cadastro.js"></script>
     <script src="js/historico.js"></script>

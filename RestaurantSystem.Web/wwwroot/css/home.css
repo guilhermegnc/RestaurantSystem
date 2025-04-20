@@ -299,7 +299,9 @@ body {
 #texto-mesa {
   color: #b2b8b9;
   text-align: center;
-  margin-top: 7vh;
+  font-family: "futura-nd", sans-serif;
+  font-weight: bold;
+  font-size: 3vw;
 }
 
 /* Estilo dos botões para seleção de mesa */
@@ -307,7 +309,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(3.5vw, 1fr));
   gap: 1vw;
-  margin-top: 10vh;
   height: 70vh;
   padding: 2vh 2vw;
   box-sizing: border-box;
@@ -333,13 +334,34 @@ body {
 
 #texto-cliente {
   color: #b2b8b9;
-  margin-bottom: 12vh;
   text-align: center;
+  font-family: "futura-nd", sans-serif;
+  font-weight: bold;
+  font-size: 3vw;
+}
+
+.container-hr {
+  display: flex;
+  justify-content: center;
+}
+
+.linha-separadora{
+  border: none;
+  height: 0.5vh;
+  background-color: #ccc; /* ou a cor que quiser */
+  margin-bottom: 10vh;
+  width :75%;
 }
 
 #form-cliente {
   color: #b2b8b9;
   text-align: center;
+}
+
+.form-label{
+  font-family: "nohemi", sans-serif;
+  font-weight: bold;
+  font-size: 1.5vw;
 }
 
 #form-cliente .form-check-input {
@@ -380,6 +402,9 @@ body {
   color: #b2b8b9;
   text-align: center;
   margin-bottom: 5vh;
+  font-family: "futura-nd", sans-serif;
+  font-weight: bold;
+  font-size: 3vw;
 }
 
 #lista-cozinha .card, #lista-copa .card, #historico-pedidos .card {
@@ -404,6 +429,19 @@ body {
   padding: 1vh;
   border-radius: 1vh;
 }
+
+@font-face {
+  font-family: 'nohemi';
+  src: url(../fonts/futura-nd-light-scosf.woff) format('woff'),
+      url(../fonts/Nohemi-Light.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'futura-nd';
+  src: url(../fonts/futura-nd-light-scosf.woff) format('woff'),
+       url(../fonts/futura-nd-light-scosf.woff2) format('woff2');
+}
+
 
 /* *:hover{
   outline: 2px solid red;

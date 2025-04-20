@@ -11,7 +11,13 @@ $(document).ready(function () {
             $filtros.addClass("d-none");
 
             if (!algumSelecionado) {
-                alert("Adicione pelo menos 1 item ao pedido.");
+                swalPadrao.fire({
+                    icon: 'warning',
+                    title: 'Carrinho Vazio',
+                    text: 'Adicione pelo menos 1 item ao pedido.',
+                    timer: 1500,
+                    showConfirmButton: false
+                  });
                 return;
             }
         }
@@ -19,7 +25,13 @@ $(document).ready(function () {
         if (etapaAtual === 1) {
             const mesaSelecionada = $(".mesa-btn.active");
             if (!mesaSelecionada.length) {
-                alert("Por favor, selecione uma mesa antes de continuar.");
+                swalPadrao.fire({
+                    icon: 'warning',
+                    title: 'Mesa não selecionada',
+                    text: 'Por favor, selecione uma mesa antes de continuar.',
+                    timer: 1500,
+                    showConfirmButton: false
+                  });
                 return;
             }
         }
@@ -30,17 +42,35 @@ $(document).ready(function () {
             const tipoPedidoSelecionado = $('input[name="tipoPedido"]:checked');
 
             if (!nome) {
-                alert("Por favor, insira o nome do cliente.");
+                swalPadrao.fire({
+                    icon: 'warning',
+                    title: 'Nome não informado',
+                    text: 'Por favor, insira o seu nome.',
+                    timer: 1500,
+                    showConfirmButton: false
+                  });
                 return;
             }
 
             if (telefone.length < 10 || telefone.length > 11) {
-                alert("Por favor, insira um número de telefone válido com DDD.");
+                swalPadrao.fire({
+                    icon: 'warning',
+                    title: 'Telefone não informado',
+                    text: 'Por favor, insira um número de telefone válido com DDD.',
+                    timer: 1500,
+                    showConfirmButton: false
+                  });
                 return;
             }
 
             if (!tipoPedidoSelecionado.length) {
-                alert("Por favor, selecione o tipo de pedido.");
+                swalPadrao.fire({
+                    icon: 'warning',
+                    title: 'Tipo de pedido não selecionado',
+                    text: 'Por favor, selecione o tipo de pedido.',
+                    timer: 1500,
+                    showConfirmButton: false
+                  });
                 return;
             }
         }
@@ -65,7 +95,13 @@ $(document).ready(function () {
                 try {
                     const result = await enviarPedidoFinalizado(); // Espera o resultado da Promise
                     if (result.success) {
-                        alert("Pedido finalizado!");
+                        swalPadrao.fire({
+                            icon: 'success',
+                            title: 'Sucesso!',
+                            text: 'Pedido finalizado!',
+                            timer: 1000,
+                            showConfirmButton: false
+                          });
                         etapaAtual = 0;
                         $btnAvancar.text("Confirmar Etapa");
                         $btnVoltar.css("display", "none");
@@ -73,13 +109,25 @@ $(document).ready(function () {
                         $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
                         $filtros.removeClass("d-none");
                     } else {
-                        alert("Erro ao finalizar o pedido. Tente novamente.");
+                        swalPadrao.fire({
+                            icon: 'error',
+                            title: 'Erro!',
+                            text: 'Erro ao finalizar o pedido. Tente novamente.',
+                            timer: 1500,
+                            showConfirmButton: false
+                          });
                         etapaAtual--;
                         $("#" + etapas[etapaAtual]).removeClass("d-none");
                         $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");
                     }
                 } catch (error) {
-                    alert("Erro ao finalizar o pedido. Tente novamente.");
+                    swalPadrao.fire({
+                        icon: 'error',
+                        title: 'Erro!',
+                        text: 'Erro ao finalizar o pedido. Tente novamente.',
+                        timer: 1500,
+                        showConfirmButton: false
+                      });
                     etapaAtual--;
                     $("#" + etapas[etapaAtual]).removeClass("d-none");
                     $(".lista-etapas .etapa").eq(etapaAtual).addClass("active");

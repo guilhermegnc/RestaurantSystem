@@ -6,6 +6,8 @@ $(document).ready(function () {
   const $usuarioIcone = $("#usuario-icone");
   const $btnSair = $("#btn-sair");
 
+  let tipoUsuarioAtual = null;
+
   // Alternar o dropdown com a classe d-none
   $btnEntrar.on("click", function () {
     $dropdown.toggleClass("d-none");
@@ -37,7 +39,13 @@ $(document).ready(function () {
     const senha = $("#cadastro-senha").val();
 
     if (!nomeUsuario || !senha) {
-      alert("Por favor, preencha todos os campos.");
+      swalPadrao.fire({
+        icon: 'warning',
+        title: 'Erro!',
+        text: 'Por favor, preencha todos os campos.',
+        timer: 1000,
+        showConfirmButton: false
+      });
       return;
     }
 
@@ -53,7 +61,13 @@ $(document).ready(function () {
       contentType: 'application/json',
       data: JSON.stringify(usuarioCadastro),
       success: function (response) {
-        alert("Cadastro realizado com sucesso!");
+        swalPadrao.fire({
+          icon: 'success',
+          title: 'Sucesso!',
+          text: 'Cadastro realizado com sucesso!',
+          timer: 1000,
+          showConfirmButton: false
+        });
 
         // Salvar o ID do usuário no localStorage para persistir a sessão
         localStorage.setItem("usuarioId", response.id);
@@ -70,7 +84,13 @@ $(document).ready(function () {
         document.body.click();
       },
       error: function (xhr, status, error) {
-        alert("Erro ao cadastrar: " + xhr.responseText);
+        swalPadrao.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: xhr.responseText,
+          timer: 1000,
+          showConfirmButton: false
+        });
       }
     });
   });
@@ -83,7 +103,13 @@ $(document).ready(function () {
     const senha = $("#login-senha").val();
 
     if (!nomeUsuario || !senha) {
-      alert("Por favor, preencha todos os campos.");
+      swalPadrao.fire({
+        icon: 'warning',
+        title: 'Erro!',
+        text: 'Por favor, preencha todos os campos.',
+        timer: 1000,
+        showConfirmButton: false
+      });
       return;
     }
 
@@ -99,11 +125,18 @@ $(document).ready(function () {
       data: JSON.stringify(usuarioLogin),
       success: function (response) {
         if (response.id) {
-          alert("Login realizado com sucesso! Bem-vindo, " + response.nomeUsuario);
+          swalPadrao.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: 'Login realizado com sucesso! Bem-vindo!',
+            timer: 1000,
+            showConfirmButton: false
+          });
 
           // Salvar o ID do usuário no localStorage para persistir a sessão
           localStorage.setItem("usuarioId", response.id);
           localStorage.setItem("tipoUsuario", response.tipoUsuario);
+          tipoUsuarioAtual = response.tipoUsuario; // Atualizar o tipo de usuário atual
 
           // Substituir o botão Entrar pelo ícone de usuário
           $btnEntrar.addClass("d-none");
@@ -118,11 +151,23 @@ $(document).ready(function () {
             mostrarConteudoFuncionario(response.tipoUsuario);
           }
         } else {
-          alert("Login falhou: usuário ou senha incorretos.");
+          swalPadrao.fire({
+            icon: 'error',
+            title: 'Erro!',
+            text: 'Usuário ou senha incorretos.',
+            timer: 1500,
+            showConfirmButton: false
+          });
         }
       },
       error: function (xhr, status, error) {
-        alert("Erro ao realizar login: " + xhr.responseText);
+        swalPadrao.fire({
+          icon: 'error',
+          title: 'Erro!',
+          text: xhr.responseText,
+          timer: 1500,
+          showConfirmButton: false
+        });
       }
     });
   });
@@ -186,7 +231,13 @@ $(document).ready(function () {
     $("#historico-dropdown").removeClass("d-none");
     $("#divider-dropdown").show();
 
-    alert("Você foi deslogado.");
+    swalPadrao.fire({
+      icon: 'success',
+      title: 'Sucesso!',
+      text: 'Você foi deslogado.',
+      timer: 1000,
+      showConfirmButton: false
+    });
   });
 
   // Verificar se o usuário está logado ao carregar a página
@@ -195,9 +246,14 @@ $(document).ready(function () {
     $btnEntrar.addClass("d-none");
     $usuarioIcone.removeClass("d-none");
     $("#historico-dropdown").removeClass("d-none");
-    const tipoUsuario = localStorage.getItem("tipoUsuario");
-    if (tipoUsuario != "cliente") {
-      mostrarConteudoFuncionario(tipoUsuario);
+    if (tipoUsuarioAtual != "cliente") {
+      mostrarConteudoFuncionario(tipoUsuarioAtual);
     }
   }
+
+  setInterval(() => {
+    if (tipoUsuarioAtual != "cliente" && tipoUsuarioAtual != null) {
+      mostrarConteudoFuncionario(tipoUsuarioAtual);
+    }
+  }, 30000);
 });

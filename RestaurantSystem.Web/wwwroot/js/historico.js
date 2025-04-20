@@ -34,7 +34,7 @@ function carregarHistoricoPedidos(usuarioId) {
                                 <div class="card-body">
                                     <strong>Itens:</strong>
                                     <div class="itens-historico">${itensPedido}</div>
-                                    <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleDateString()}</p>
+                                    <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short', hour12: false })}</p>
                                     <p><strong>Status:</strong> ${pedido.status}</p>
                                 </div>
                             </div>

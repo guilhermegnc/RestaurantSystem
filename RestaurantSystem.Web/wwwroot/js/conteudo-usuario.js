@@ -27,7 +27,9 @@ function mostrarConteudoFuncionario(tipoUsuario) {
             if (pedidos.length === 0) {
                 $lista.append("<p>Ainda não há nenhum pedido.</p>");
             } else {
-                pedidos.$values.forEach(pedido => {
+                pedidos.$values
+                .filter(pedido => pedido.status.toLowerCase() !== "entregue")
+                .forEach(pedido => {
                     let itensPedido = '';
 
                     pedido.itens.$values.forEach(item => {
@@ -46,7 +48,7 @@ function mostrarConteudoFuncionario(tipoUsuario) {
                                 <strong>Itens do Pedido:</strong>
                                 <div class="itens-pedido">${itensPedido}</div>
                                 <p><strong>Número da mesa:</strong> ${pedido.mesaNumero}</p>
-                                <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleDateString()}</p>
+                                <p><strong>Data do Pedido:</strong> ${new Date(pedido.dataPedido).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short', hour12: false })}</p>
                                 <p><strong>Status:</strong> <span class="status-text">${pedido.status}</span></p>
                                 <div class="botoes-status d-flex flex-wrap gap-2">
                                     <button class="btn btn-sm btn-secondary btn-alterar-status" data-status="em preparo">Em Preparo</button>
@@ -77,7 +79,11 @@ function mostrarConteudoFuncionario(tipoUsuario) {
                             $statusText.text(novoStatus);
                         },
                         error: function () {
-                            alert("Erro ao atualizar o status do pedido.");
+                            swalPadrao.fire({
+                                icon: 'error',
+                                title: 'Erro',
+                                text: 'Erro ao atualizar o status do pedido.'
+                              });
                         }
                     });
                 });
