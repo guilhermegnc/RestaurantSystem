@@ -57,9 +57,11 @@ namespace RestaurantSystem.API.Services
                     .Where(i => i.Produto != null && (string.IsNullOrEmpty(setor) || i.Produto.Categoria == setor)) // Filtra os itens
                     .Select(i => new PedidoItemDto
                     {
+                        Id = i.Id,
                         ProdutoId = i.ProdutoId,
                         Quantidade = i.Quantidade,
-                        NomeProduto = i.Produto?.Nome
+                        NomeProduto = i.Produto?.Nome,
+                        Status = i.Status
                     }).ToList()
             }).ToList();
 

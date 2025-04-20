@@ -13,15 +13,18 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         mysqlOptions => mysqlOptions.EnableRetryOnFailure()
     )
 );
-builder.Services.AddScoped<PedidoService>();
 
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<PedidoService>();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
 
 builder.Services.AddScoped<IMesaRepository, MesaRepository>();
 builder.Services.AddScoped<MesaService>();
+
+builder.Services.AddScoped<IPedidoItemRepository, PedidoItemRepository>();
+builder.Services.AddScoped<PedidoItemService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

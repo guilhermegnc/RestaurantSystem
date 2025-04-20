@@ -12,6 +12,9 @@ namespace RestaurantSystem.API.Models
         public int ProdutoId { get; set; }
         public int Quantidade { get; set; }
 
+        [Column("status")]
+        public string Status { get; set; } = "em preparo";
+
         // Navegação
         public Pedido Pedido { get; set; }
         public Produto Produto { get; set; } 

@@ -45,17 +45,5 @@ namespace RestaurantSystem.API.Controllers
 
             return Ok(pedido);
         }
-
-        // PUT: api/pedidos/{id}/status
-        [HttpPut("{id}/status")]
-        public async Task<IActionResult> AtualizarStatus(int id, [FromBody] string novoStatus)
-        {
-            var pedido = await _pedidoService.BuscarPorIdAsync(id);
-            if (pedido == null)
-                return NotFound();
-
-            await _pedidoService.AtualizarStatusAsync(id, novoStatus);
-            return NoContent();
-        }
     }
 }

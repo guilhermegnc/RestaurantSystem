@@ -407,6 +407,10 @@ body {
   font-size: 3vw;
 }
 
+#lista-copa, #lista-cozinha {
+  row-gap: 1vw;
+}
+
 #lista-cozinha .card, #lista-copa .card, #historico-pedidos .card {
   background-color: #202425;
   border-radius: 1vw;

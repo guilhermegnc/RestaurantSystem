@@ -21,7 +21,7 @@ function carregarHistoricoPedidos(usuarioId) {
                     pedido.itens.$values.forEach(item => {
                         itensPedido += `
                 <div class="mb-2">
-                  <strong>Produto:</strong> ${item.nomeProduto} <br />
+                  <strong>Produto:</strong> ${item.nomeProduto} - ${item.status}<br />
                   <strong>Quantidade:</strong> ${item.quantidade}
                 </div>
               `;

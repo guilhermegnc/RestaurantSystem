@@ -44,6 +44,12 @@ function enviarPedidoFinalizado() {
       contentType: "application/json",
       data: JSON.stringify(payload),
       success: function (response) {
+        $(".item-card").each(function () {
+          $(this).find(".quantidade").text("0");
+        });
+
+        $("#informacoesAdicionais").val("");
+        $('input[name="tipoPedido"]').prop("checked", false);
         resolve({ success: true, message: "Pedido finalizado com sucesso!", response });
         console.log("Resposta do servidor:", response);
       },

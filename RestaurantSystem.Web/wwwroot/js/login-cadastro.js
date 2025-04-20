@@ -82,6 +82,7 @@ $(document).ready(function () {
         $("#cadastro-usuario").val('');
         $("#cadastro-senha").val('');
         document.body.click();
+        alternarOpcaoHistorico(false);
       },
       error: function (xhr, status, error) {
         swalPadrao.fire({
@@ -147,6 +148,7 @@ $(document).ready(function () {
           $("#login-usuario").val('');
           $("#login-senha").val('');
           document.body.click();
+          alternarOpcaoHistorico(false);
           if (response.tipoUsuario != "cliente") {
             mostrarConteudoFuncionario(response.tipoUsuario);
           }
@@ -231,6 +233,8 @@ $(document).ready(function () {
     $("#historico-dropdown").removeClass("d-none");
     $("#divider-dropdown").show();
 
+    tipoUsuarioAtual = null;
+
     swalPadrao.fire({
       icon: 'success',
       title: 'Sucesso!',
@@ -245,9 +249,10 @@ $(document).ready(function () {
     // Se o usuário estiver logado, mostra o ícone de usuário
     $btnEntrar.addClass("d-none");
     $usuarioIcone.removeClass("d-none");
-    $("#historico-dropdown").removeClass("d-none");
-    if (tipoUsuarioAtual != "cliente") {
-      mostrarConteudoFuncionario(tipoUsuarioAtual);
+    const tipoUsuario = localStorage.getItem("tipoUsuario");
+    if (tipoUsuario != "cliente") {
+      $("#historico-dropdown").removeClass("d-none");
+      mostrarConteudoFuncionario(tipoUsuario);
     }
   }
 
@@ -255,5 +260,5 @@ $(document).ready(function () {
     if (tipoUsuarioAtual != "cliente" && tipoUsuarioAtual != null) {
       mostrarConteudoFuncionario(tipoUsuarioAtual);
     }
-  }, 30000);
+  }, 5000);
 });
