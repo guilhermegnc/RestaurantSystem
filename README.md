@@ -16,7 +16,7 @@ Sistema de gerenciamento de pedidos para restaurantes, composto por uma Web API 
 - **Autenticação de Usuários**  
   - Cadastro e login de usuários  
 - **Histórico de Pedidos**  
-  - Consulta de histórico por usuário e setor (cozinha, copa)  
+  - Consulta de histórico por usuário  
 - **Painel de Cozinha/Copa**  
   - Listagem de pedidos pendentes por setor  
 - **Atualização de Status**  
