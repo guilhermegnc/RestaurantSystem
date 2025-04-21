@@ -256,9 +256,10 @@ $(document).ready(function () {
     }
   }
 
+  // Atualiza a pagina do funcionario a cada 30 segundos
   setInterval(() => {
     if (tipoUsuarioAtual != "cliente" && tipoUsuarioAtual != null) {
       mostrarConteudoFuncionario(tipoUsuarioAtual);
     }
-  }, 5000);
+  }, 30000);
 });

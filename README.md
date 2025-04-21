@@ -1,6 +1,6 @@
 # RestaurantSystem
 
-Sistema de gerenciamento de pedidos para restaurantes, composto por uma Web API em ASP.NET Core (.NET 9) e uma interface web em HTML, CSS e JavaScript.
+Sistema de gerenciamento de pedidos para restaurantes, composto por uma Web API em ASP.NET Core (.NET 9) e uma interface web em HTML, CSS e JavaScript. Video demonstrando: https://youtu.be/hvkcqm0dUkw
 
 ---
 

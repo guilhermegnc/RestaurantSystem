@@ -1,3 +1,4 @@
+//configuração do SweetAlert2
 const swalPadrao = Swal.mixin({
   background: '#202425',
   color: '#b2b8b9',

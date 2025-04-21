@@ -11,7 +11,6 @@ namespace RestaurantSystem.API.Controllers
     public class PedidoItemController : ControllerBase {
         private readonly PedidoItemService _pedidoItemService;
 
-        // Injetando o PedidoService
         public PedidoItemController(PedidoItemService pedidoItemService)
         {
             _pedidoItemService = pedidoItemService;

@@ -4,6 +4,7 @@ body {
   height:100%;
 }
 
+/* navbar */
 .barra-superior {
   background-color: #202425;
   height: 8vh;
@@ -69,6 +70,20 @@ body {
   text-decoration: none;
 }
 
+#historico-dropdown {
+  color: #b2b8b9;
+}
+
+#historico-dropdown:hover, #btn-sair:hover {
+  color: black;
+  border-radius: 1vw;
+  background-color: #e74a0c;
+}
+
+#btn-sair {
+  color: red;
+}
+
 /* Layout principal */
 .pagina {
   display: flex;
@@ -83,6 +98,7 @@ body {
   min-width: 0;
 }
 
+/*filtros*/
 #barra-pesquisa {
   background-color: #202425;
   color: #b2b8b9;
@@ -126,20 +142,6 @@ body {
 }
 #separador-filtros {
   width: 3.3%;
-}
-
-#historico-dropdown {
-  color: #b2b8b9;
-}
-
-#historico-dropdown:hover, #btn-sair:hover {
-  color: black;
-  border-radius: 1vw;
-  background-color: #e74a0c;
-}
-
-#btn-sair {
-  color: red;
 }
 
 /* Barra lateral no fluxo da página */
@@ -291,6 +293,8 @@ body {
   color: #e74a0c;
 }
 
+
+/* Etapa seleção de mesas */
 #secao-mesa{
   align-items: center;
   justify-content: center;
@@ -331,6 +335,8 @@ body {
 .mesa-btn.active {
   background-color: #e74a0c;
 }
+
+/*Seção informções do cliente*/
 
 #texto-cliente {
   color: #b2b8b9;
@@ -398,6 +404,8 @@ body {
   text-align: center;
 }
 
+/* Usuario cozinha ou copa e historico do cliente*/
+
 #pedidos-cozinha h2, #pedidos-copa h2, #historico-pedidos h2 {
   color: #b2b8b9;
   text-align: center;
@@ -433,6 +441,8 @@ body {
   padding: 1vh;
   border-radius: 1vh;
 }
+
+/* Fontes */
 
 @font-face {
   font-family: 'nohemi';
