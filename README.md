@@ -107,6 +107,10 @@ Sistema de gerenciamento de pedidos para restaurantes, composto por uma Web API 
 | POST   | `/api/pedidos`                        | Cria novo pedido                               |
 | GET    | `/api/pedidos/historico`              | Lista histórico (filtros `usuarioId`, `setor`) |
 | GET    | `/api/pedidos/{id}`                   | Recupera detalhes de um pedido                 |
-| PUT    | `/api/pedidos/{id}/status`            | Atualiza status (body: `"NovoStatus"`)         |
+
+### Itens Pedidos
+| Método | Rota                                  | Descrição                                      |
+| ------ | ------------------------------------- | ---------------------------------------------- |
+| PUT    | `/api/pedidoitem/{id}/status`         | Atualiza status do item do pedido              |
 
 ```
