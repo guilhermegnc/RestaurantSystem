@@ -108,7 +108,7 @@ Sistema de gerenciamento de pedidos para restaurantes, composto por uma Web API 
 | GET    | `/api/pedidos/historico`              | Lista histórico (filtros `usuarioId`, `setor`) |
 | GET    | `/api/pedidos/{id}`                   | Recupera detalhes de um pedido                 |
 
-### Itens Pedidos
+### Itens dos Pedidos
 | Método | Rota                                  | Descrição                                      |
 | ------ | ------------------------------------- | ---------------------------------------------- |
 | PUT    | `/api/pedidoitem/{id}/status`         | Atualiza status do item do pedido              |
